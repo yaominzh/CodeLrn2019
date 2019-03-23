@@ -105,9 +105,43 @@ void mergeSort(int arr[], int l, int r){
 
 > 如何写出正确的程序
 边界处理
+
+> 程序应该是理解的基本上，手写出来的。
 ## 3-2
-## 3-3
-## 3-2
+> 如何写出正确的程序
+1. 明确变量的含义
+2. 循环不变量
+3. 小数据量调试
+4. 大数据量调试
+
+**小结:一个程序员的核心竞争力是能快速设计出适当的数据集调试代码**
+## 3-5
+leetcode 75
+> 暴力解法
+计数排序
+
+## 3-5
+1. example:leetcode 80 sort-colors 三路快排思路 
+2. pratice:leetcode 88 merge sorted array  归并排序中的归并一步
+3. pratice:leetcode 215 Kth Largest Element in an Array
+
+## 3-6 
+
+双索引技术之一， 对撞指针
+1. example: leetcode 167 Two Sum II - input array is sorted
+        没有解怎么办？多个解怎么办？
+a.        有序<----->二分查找
+b.  两个输出， **对撞指针**      
+
+2. practice: leetcode 125 valid palindrome
+字符处理：空字符串，字符定义， 大小写
+3. practice: leetcode 344 reverse String
+4. practice: leetcode 345 reverse vowels of a string
+5. practice: leetcode 11 container with most water
+
+## 3-7      
+双索引技术之二， 滑动窗口
+1. example: leetcode 209 minimum size subarray sum
 
 # Chap01 
 
