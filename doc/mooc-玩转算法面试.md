@@ -142,7 +142,11 @@ b.  两个输出， **对撞指针**
 ## 3-7      
 双索引技术之二， 滑动窗口
 1. example: leetcode 209 minimum size subarray sum
+## 3-8
+leetcode 3 Longest substring without repeating characters
+> 
 
+2. practice: 438 find all anagrams in a string
 # Chap01 
 
 # Chap01 
