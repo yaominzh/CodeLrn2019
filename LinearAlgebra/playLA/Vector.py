@@ -2,6 +2,10 @@ class Vector:
     def __init__(self, lst):
         self._values = list(lst)
 
+    @classmethod
+    def zero(cls,dim):
+        return cls([0]*dim)
+
     def __add__(self, another):
         assert len(self) == len(another), \
             "Error in adding"
