@@ -1,4 +1,4 @@
-package com.az.openclose;
+package com.az.designprinciple.openclose;
 
 public class JavaDiscountCourse extends JavaCourse {
 

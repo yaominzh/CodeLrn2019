@@ -1,4 +1,4 @@
-package com.az.openclose;
+package com.az.designprinciple.openclose;
 
 public class Test {
     public static void main(String[] args) {
