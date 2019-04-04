@@ -15,3 +15,11 @@
 cons
 1. 观察者之间有过多的细节依赖
 
+# chap19 装饰器模式
+
+动态地将责任附加到对象上。 若要扩展功能， 装饰者提供了比继承更有弹性的替代方案。
+attaches additional responsibilities to an object dynamically. Decorators provid a flexible alternative to subclassing for extending functionality. 
+
+> 扩展一个类的功能或给一个类添加附加职责 
+> 把类中的装饰功能分离出去**开闭原则**
+git reset HEAD 
