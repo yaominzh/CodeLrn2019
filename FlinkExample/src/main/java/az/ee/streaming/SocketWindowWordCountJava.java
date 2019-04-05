@@ -1,4 +1,4 @@
-package az.ee;
+package az.ee.streaming;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
