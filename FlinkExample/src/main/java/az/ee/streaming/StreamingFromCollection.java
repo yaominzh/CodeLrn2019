@@ -25,6 +25,6 @@ public class StreamingFromCollection {
             }
         });
         num.print();
-        env.execute("test");
+        env.execute("StreamingFromCollection");
     }
 }
