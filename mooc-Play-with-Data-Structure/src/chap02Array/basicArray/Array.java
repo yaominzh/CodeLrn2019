@@ -1,11 +1,11 @@
-package chap02Array;
+package chap02Array.basicArray;
 
-public class Array<E> {
-    private E[] data;
+public class Array {
+    private int[] data;
     private int size;
 
     public Array(int capacity) {
-        data = (E[]) new Object[capacity];
+        data = new int[capacity];
         size = 0;
     }
 
@@ -26,7 +26,34 @@ public class Array<E> {
         return size == 0;
     }
 
-    public void add(int index, E e) {
+    public void addLast(int e) {
+        if (size == data.length)
+            throw new IllegalArgumentException("AddLast failed. Array is full");
+        data[size++] = e;
+    }
+
+    public void addFirst(int e) {
+        add(0, e);
+    }
+
+    //    public E get(int index) {
+//        rangeCheck(index);
+//        checkForComodification();
+//        return ArrayList.this.elementData(offset + index);
+//    }
+    public int get(int index) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("Get failed. Index is illegal");
+        return data[index];
+    }
+
+    public void set(int index, int e) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("Set failed. Index is illegal");
+        data[index] = e;
+    }
+
+    public void add(int index, int e) {
         if (size == data.length)
             throw new IllegalArgumentException("AddLast failed. Array is full");
 
@@ -39,72 +66,42 @@ public class Array<E> {
 
     }
 
-    public void addLast(E e) {
-        if (size == data.length)
-            throw new IllegalArgumentException("AddLast failed. Array is full");
-        data[size++] = e;
-    }
-
-    public void addFirst(E e) {
-        add(0, e);
-    }
-
-    //    public E get(int index) {
-//        rangeCheck(index);
-//        checkForComodification();
-//        return ArrayList.this.elementData(offset + index);
-//    }
-    public E get(int index) {
-        if (index < 0 || index >= size)
-            throw new IllegalArgumentException("Get failed. Index is illegal");
-        return data[index];
-    }
-
-    public void set(int index, E e) {
-        if (index < 0 || index >= size)
-            throw new IllegalArgumentException("Set failed. Index is illegal");
-        data[index] = e;
-    }
-
-
-    public boolean contains(E e) {
+    public boolean contains(int e) {
         for (int i = 0; i < size; i++) {
-            if (data[i].equals(e))
+            if (data[i] == e)
                 return true;
         }
         return false;
     }
 
-    public int find(E e) {
+    public int find(int e) {
         for (int i = 0; i < size; i++) {
-            if (data[i].equals(e))
+            if (data[i] == e)
                 return i;
         }
         return -1;
     }
 
-    public E remove(int index) {
+    public int remove(int index) {
         if (index < 0 || index >= size)
             throw new IllegalArgumentException("Remove failed. Index is illegal");
-        E ret = data[index];
+        int ret = data[index];
         for (int i = index; i <= size; i++)
             data[i] = data[i + 1];
         size--;
-        data[size] = null;
         return ret;
     }
 
-    public E removeFirst() {
+    public int removeFirst() {
         return remove(0);
     }
 
-    public E removeLast() {
+    public int removeLast() {
         return remove(size - 1);
     }
-
-    public void removeElement(E e) {
+    public void removeElement(int e){
         int index = find(e);
-        if (index != -1)
+        if(index != -1)
             remove(index);
     }
 
