@@ -30,7 +30,7 @@ public class LinkedList<E> {
     private int size;
 
     public LinkedList() {
-        dummyhead= new Node(null, null);
+        dummyhead = new Node(null, null);
         size = 0;
     }
 
@@ -41,26 +41,68 @@ public class LinkedList<E> {
     public boolean isEmpty() {
         return size == 0;
     }
-    public void addFirst(E e){
-        Node node = new Node(e);
-        node.next = head;
-        head = node;
-        size ++;
+
+    public void addFirst(E e) {
+        add(0, e);
     }
-    public void add(int index, E e){
-        if(index <0|| index > size)
+
+    public void add(int index, E e) {
+        if (index < 0 || index > size)
             throw new IllegalArgumentException("Add failed. Illegal index.");
-        if(index ==0)
-            addFirst(e);
-        else{
-            Node prev =head;
-            for(int i = 0; i<index -1; i++)
-                prev = prev.next;
-            Node node = new Node(e);
-            node.next = prev.next;
-            prev.next = node;
-            size ++;
+        Node prev = dummyhead;
+        for (int i = 0; i < index; i++)
+            prev = prev.next;
+        prev.next = new Node(e, prev.next);
+        size++;
+    }
+
+    public E get(int index) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("get failed. Illegal index.");
+        Node cur = dummyhead.next;
+        for (int i = 0; i < index; i++)
+            cur = cur.next;
+        return cur.e;
+    }
+
+    public E getFirst() {
+        return get(0);
+
+    }
+
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    public void set(int index, E e) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("set failed. Illegal index.");
+        Node cur = dummyhead.next;
+        for (int i = 0; i < index; i++)
+            cur = cur.next;
+        cur.e = e;
+    }
+
+    public boolean contains(E e) {
+        Node cur = dummyhead.next;
+        while (cur != null) {
+            if (cur.e.equals(e))
+                return true;
+            cur = cur.next;
         }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        Node cur = dummyhead.next;
+        while (cur != null) {
+            res.append(cur + "->");
+            cur = cur.next;
+        }
+        res.append("NULL");
+        return res.toString();
     }
 
 }
