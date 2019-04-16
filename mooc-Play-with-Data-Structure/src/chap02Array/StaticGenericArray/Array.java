@@ -1,4 +1,4 @@
-package chap02Array;
+package chap02Array.StaticGenericArray;
 
 public class Array<E> {
     private E[] data;
@@ -27,25 +27,16 @@ public class Array<E> {
     }
 
     public void add(int index, E e) {
+        if (size == data.length)
+            throw new IllegalArgumentException("AddLast failed. Array is full");
 
         if (index < 0 || index > size)
             throw new IllegalArgumentException("AddLast failed. Require index >=0");
-        if (size == data.length)
-            resize(2 * data.length);
-
         for (int i = (size - 1); i >= index; i--)
             data[i + 1] = data[i];
         data[index] = e;
         size++;
 
-    }
-
-    private void resize(int newCapacity) {
-
-        E[] newData = (E[]) new Object[newCapacity];
-        for (int i = 0; i < size; i++)
-            newData[i] = data[i];
-        data = newData;
     }
 
     public void addLast(E e) {
@@ -96,12 +87,10 @@ public class Array<E> {
         if (index < 0 || index >= size)
             throw new IllegalArgumentException("Remove failed. Index is illegal");
         E ret = data[index];
-        for (int i = index; i < size-1; i++)
-            data[i] = data[i+1 ];
+        for (int i = index; i <= size; i++)
+            data[i] = data[i + 1];
         size--;
         data[size] = null;
-        if (size == data.length / 4 && data.length /2 !=0 )
-            resize(data.length / 2);
         return ret;
     }
 

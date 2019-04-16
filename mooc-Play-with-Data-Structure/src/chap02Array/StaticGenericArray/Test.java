@@ -1,4 +1,6 @@
-package chap02Array;
+package chap02Array.StaticGenericArray;
+
+import chap02Array.Array;
 
 public class Test {
 //    public static void main(String[] args) {
@@ -9,7 +11,7 @@ public class Test {
 //    }
 public static void main(String[] args) {
 
-    Array<Integer> arr = new Array<>();
+    Array<Integer> arr = new Array<>(20);
     for(int i = 0 ; i < 10 ; i ++)
         arr.addLast(i);
     System.out.println(arr);
