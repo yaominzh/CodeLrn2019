@@ -1,4 +1,4 @@
-package chap04LinkedList;
+package chap03StackQueue;
 
 public class LinkedList<E> {
 
