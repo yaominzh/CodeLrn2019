@@ -92,23 +92,40 @@ public class LinkedList<E> {
         }
         return false;
     }
-    public E remove(int index){
-        if(index<0 || index>=size)
+
+    public E remove(int index) {
+        if (index < 0 || index >= size)
             throw new IllegalArgumentException("remove failed. Illegal index.");
         Node prev = dummyhead;
-        for(int i = 0 ; i< index; i++)
+        for (int i = 0; i < index; i++)
             prev = prev.next;
         Node retNode = prev.next;
         prev.next = retNode.next;
         retNode.next = null;
-        size --;
+        size--;
         return retNode.e;
     }
-    public E removeFirst(){
+
+    public E removeFirst() {
         return remove(0);
     }
-    public E removeLast(){
-        return remove(size-1);
+
+    public E removeLast() {
+        return remove(size - 1);
+    }
+
+    public void removeElement(E e) {
+        Node prev = dummyhead;
+        while (prev.next != null) {
+            if (prev.next.e.equals(e))
+                break;
+            prev = prev.next;
+        }
+        if (prev.next != null) {
+            Node delNode = prev.next;
+            prev.next = delNode.next;
+            delNode.next = null;
+        }
     }
 
     @Override
