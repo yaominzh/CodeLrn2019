@@ -1,6 +1,5 @@
 package chap09SegmentTree;
 
-import org.jetbrains.annotations.Contract;
 
 public class SegmentTree <E>{
     private E[] data;
