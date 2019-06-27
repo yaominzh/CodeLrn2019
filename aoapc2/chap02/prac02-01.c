@@ -1,3 +1,8 @@
+/**
+ * daffodil
+ *
+ * @result: 153 370 371 407
+ */
 #include<stdio.h>
 int main(){
     for(int i=100; i<1000; i++){
