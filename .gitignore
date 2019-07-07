@@ -3,3 +3,5 @@
 .idea/modules.xml
 .idea/misc.xml
 .idea/CodeLrn2019.iml
+*.out
+.idea/
