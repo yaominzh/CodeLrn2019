@@ -8,3 +8,7 @@
 .idea/
 */.idea/*
 out/
+*.iml
+*/target/*
+
+imoocad/ad-eureka/target/
