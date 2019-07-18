@@ -6,3 +6,5 @@
 *.class
 *.out
 .idea/
+*/.idea/*
+out/
