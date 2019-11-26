@@ -1,3 +1,4 @@
+.DS_Store
 .idea/vcs.xml
 .idea/workspace.xml
 .idea/modules.xml
@@ -15,3 +16,4 @@ imoocad/ad-eureka/target/
 algs4/algs4-data/
 book01algs4/algs4-data/
 */Leipzig100K.txt
+
