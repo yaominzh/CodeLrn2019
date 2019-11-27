@@ -4,6 +4,7 @@
 .idea/misc.xml
 .idea/CodeLrn2019.iml
 *.class
+*/*.class
 *.out
 .idea/
 */.idea/*
