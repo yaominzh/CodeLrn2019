@@ -16,5 +16,8 @@ out/
 imoocad/ad-eureka/target/
 algs4/algs4-data/
 book01algs4/algs4-data/
+
+# Large File
 */Leipzig100K.txt
 
+*/testG4.txt
