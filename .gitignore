@@ -21,3 +21,7 @@ book01algs4/algs4-data/
 */Leipzig100K.txt
 
 */testG4.txt
+
+# mooc43
+**/cmake-build-debug/*
+/mooc43-bobo-algo/sanbox/**/testG1.txt
