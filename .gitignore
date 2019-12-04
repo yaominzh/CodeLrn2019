@@ -25,3 +25,5 @@ book01algs4/algs4-data/
 # mooc43
 **/cmake-build-debug/*
 /mooc43-bobo-algo/sanbox/**/testG1.txt
+# mooc10
+**/node_modules/*
