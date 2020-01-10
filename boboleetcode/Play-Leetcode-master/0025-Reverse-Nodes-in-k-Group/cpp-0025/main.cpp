@@ -1,6 +1,6 @@
 /// Source : https://leetcode.com/problems/reverse-nodes-in-k-group/description/
 /// Author : liuyubobobo
-/// Time   : 2018-10-02
+/// Time   : 2019-08-09
 
 #include <iostream>
 #include <vector>
@@ -26,23 +26,25 @@ public:
         ListNode* dummyHead = new ListNode(-1);
         dummyHead->next = head;
 
-        ListNode* cur = dummyHead;
-        while(cur && cur->next){
-            ListNode* tail = cur->next;
+        ListNode* pre = dummyHead;
+        while(pre && pre->next){
 
-            ListNode* left;
-            bool ok = false;
-            cur->next = reverse(cur->next, k - 1, left, ok);
-            tail->next = left;
+            ListNode* end = pre;
+            int i;
+            for(i = 0; i < k && end->next; i ++)
+                end = end->next;
 
-            if(ok)
-                cur = tail;
-            else {
-                tail = cur->next;
-                cur->next = reverse(cur->next, k - 1, left, ok);
-                tail->next = NULL;
-                break;
-            }
+            if(i != k) break;
+
+            ListNode* next = end->next;
+
+            // reverse from pre->next to end
+            ListNode* rhead = reverse(pre->next, end);
+
+            ListNode* tail = pre->next;
+            pre->next = rhead;
+            tail->next = next;
+            pre = tail;
         }
 
         ListNode* ret = dummyHead->next;
@@ -51,18 +53,13 @@ public:
     }
 
 private:
-    ListNode* reverse(ListNode* head, int index, ListNode* &left, bool& ok){
+    ListNode* reverse(ListNode* head, ListNode* end){
 
-        if(index == 0 || !head->next){
-            ok = index == 0;
-            left = head->next;
-            return head;
-        }
+        if(head == end) return head;
 
-        ListNode* tail = head->next;
-        ListNode* ret = reverse(head->next, index - 1, left, ok);
-        tail->next = head;
-        return ret;
+        ListNode* rhead = reverse(head->next, end);
+        head->next->next = head;
+        return rhead;
     }
 };
 
