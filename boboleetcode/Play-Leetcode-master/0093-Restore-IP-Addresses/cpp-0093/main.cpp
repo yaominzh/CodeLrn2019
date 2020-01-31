@@ -23,6 +23,10 @@ public:
 
 private:
     void dfs(const string& s, int index, vector<int>& ip, vector<string>& res){
+        cout<<index<<endl;
+        cout<<s[index]<<endl;
+
+
 
         if(index == s.size()){
             if(ip.size() == 4)
@@ -67,16 +71,16 @@ void print_vec(const vector<string>& vec){
 
 int main() {
 
-    string s1 = "25525511135";
-    print_vec(Solution().restoreIpAddresses(s1));
+//    string s1 = "25525511135";
+//    print_vec(Solution().restoreIpAddresses(s1));
     // 255.255.111.35 255.255.11.135
 
-    string s2 = "1";
+    string s2 = "1111";
     print_vec(Solution().restoreIpAddresses(s2));
     // empty
 
-    string s3 = "010010";
-    print_vec(Solution().restoreIpAddresses(s3));
+//    string s3 = "010010";
+//    print_vec(Solution().restoreIpAddresses(s3));
     // 0.10.0.10 0.100.1.0
 
     return 0;

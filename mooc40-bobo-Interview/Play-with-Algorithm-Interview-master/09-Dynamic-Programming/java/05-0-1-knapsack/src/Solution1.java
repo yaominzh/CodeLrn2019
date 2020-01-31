@@ -42,6 +42,10 @@ public class Solution1 {
     }
 
     public static void main(String[] args) {
+        int C=5;
+        int[] w= {1,2,3,};
+        int[] v= {6,10,12};
+        System.out.println(new Solution1().knapsack01(w,v,C));
 
     }
 
