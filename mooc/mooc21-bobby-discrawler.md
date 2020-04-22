@@ -15,6 +15,11 @@
 ##  3-4 正则表达式-3
 ##  3-5 深度优先和广度优先原理
 ##  3-6 url去重方法
+1. 将访问过的url保存到数据库
+2. 保存到set 
+3. url经过md5哈希后保存到set
+4. bitmap
+5. bloomfilter方法,多重hash
 ##  3-7 彻底搞清楚unicode和utf8编码
 # 第4章 新： scrapy爬取知名技术文章网站
 搭建scrapy的开发环境，本章介绍scrapy的常用命令以及工程目录结构分析，本章中也会详细的讲解xpath和css选择器的使用。然后通过scrapy提供的spider完成所有文章的爬取。然后详细讲解item以及item loader方式完成具体字段的提取后使用scrapy提供的pipeline分别将数据保存到json文件以及mysql数据库中。...
