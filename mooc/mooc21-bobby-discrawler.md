@@ -28,6 +28,17 @@
 ##  4-3 需求分析
 ##  4-4 pycharm中调试scrapy源码
 ##  4-5 xpath基础语法
+
+| 表达式 | 说明 |
+| ------ | ---- |
+| artical | 选取所有 artical所有子节点
+| /article | 
+| article/a
+| //div
+| artical//div
+| //@class
+
+id页面全局唯一
 ##  4-6 xpath提取元素
 ##  4-7 css选择器
 ##  4-8 编写spider完成抓取过程 - 1
