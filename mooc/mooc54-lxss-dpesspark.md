@@ -310,6 +310,22 @@ MySQL数据库中时间信息作为参考
 ##  10-4 门店搜索（4）
 ##  10-5 java搜索接入（1）
 ##  10-6 java搜索接入（2）
+### gotchar
+```log
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'elasticsearchRestClient', defined in class path resource [org/springframework/boot/autoconfigure/elasticsearch/rest/RestClientConfigurations$RestHighLevelClientConfiguration.class], could not be registered. A bean with that name has already been defined in file [/Users/allenzhang/repo/azsanbox/xunke/target/classes/com/azwe/xunke/config/ElasticsearchRestClient.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+Disconnected from the target VM, address: '127.0.0.1:52959', transport: 'socket'
+```
 ##  10-7 java搜索接入（3）
 ##  10-8 java搜索接入（4）
 ##  10-9 java搜索接入（5）
@@ -321,8 +337,28 @@ MySQL数据库中时间信息作为参考
 ##  10-15 【勤于思考，夯实学习成果】搜索2.0架构之搜索接入
 # 第11章 点评搜索进阶之相关性改造【相关性改造能力建设】
 ##  11-1 定制化分词器之扩展词库（上）
-##  11-2 定制化分词器之扩展词库（下）
+扩展词库
+同义词处理
+### 索引重新构建
+```
+POST /shop/_update_by_query
+{
+  "query":{
+    "bool":{
+      "must":[
+        {"term":{"name":"凯"}},
+        {"term":{"name":"悦"}}
+      ]
+    }
+  }
+}
+```
+##  11-2 定制化分词器之扩展词库（下） 热更新词库
+<entry key=" ext_dic" > http://yoursite.com/getCustomDic</entry>
+Http请求需要返回两个头部last-modified和etag
+
 ##  11-3 同义词扩展
+
 ##  11-4 相关性重塑（上）
 ##  11-5 相关性重塑（中）
 ##  11-6 相关性重塑（下）
@@ -330,6 +366,7 @@ MySQL数据库中时间信息作为参考
 ##  11-8 【勤于思考，夯实学习成果】点评搜索进阶之相关性改造习题
 # 第12章 点评搜索进阶之准实时性索引【准实时索引能力建设】
 ##  12-1 canal索引构建进阶（1）
+canal伪装成mysql从库
 ##  12-2 canal索引构建进阶（2）
 ##  12-3 canal索引构建进阶（3）
 ##  12-4 canal索引构建进阶（4）

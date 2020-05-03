@@ -1,5 +1,12 @@
 # 第1章 课程介绍【悄悄告诉你，一定要看，有福利】
 ##  1-1 课程介绍试看
+### 前端工具应用
+Jest
+Commitizen
+RolliupJS
+TSLint
+Prettier
+Semantic release
 # 第2章 初识 Typescript【初次体验】
 教会同学们安装 Typescript 编译器，以及通过编写第一个 TypeScript 程序认识 TypeScript。
 ##  2-1 安装 TypeScript
