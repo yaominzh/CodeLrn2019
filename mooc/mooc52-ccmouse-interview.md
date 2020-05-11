@@ -30,7 +30,26 @@ https://coding.imooc.com/class/132.html
 只写Join ->笛卡尔集
 
 ##  5-3 事务和乐观锁
+Transaction:
+ACID
+ - Atomicity
+ - Consistency
+ - Isolation
+ - Durability
+  
+隔离级别;
+ - Read uncommitted
+ - read committed
+ - repeatable reads
+ - Serializable
+
+乐观锁:并发程序低
 ##  5-4 数据库问题
+ - 介绍一下关系型数据库的理论基础
+ - 给定一个场景,请设计表结构
+ - 给定表结构,请按标示写出sql语句
+ - 事务的acid,事务的隔离级别
+ - 事务的性能太慢怎么办(乐观锁with timestamp 或选一个字段作为版本)
 ##  5-5 索引的创建和验证
 ##  5-6 索引的实现
 ##  5-7 数据库连接池
