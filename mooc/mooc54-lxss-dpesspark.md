@@ -121,6 +121,9 @@ http://localhost:9200/_cat/nodes
 读请求各自处理:负载均衡+读写分离
 
 ##  7-4 ElasticSearch及Kibana环境搭建
+```local install runbook
+
+```
 ##  7-5 分布式搜索引擎的原理（上）
 ##  7-6 分布式搜索引擎的原理（中）
 ##  7-7 分布式搜索引擎的原理（下）
