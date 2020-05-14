@@ -1,3 +1,9 @@
+[toc]
+# dailylog
+## 20200514
+ - [ ] esconfig in docker : install plugin
+ - [ ] esconfig in docker :自定义分词器 同义词
+ - [ ] esconfig
 # 第1章 导学
 ##  1-1 导学
 ##  1-2 ***学前必读***（助你平稳踩坑，畅学无忧，课程学习与解决问题指南）
@@ -6,8 +12,6 @@
 ##  2-1 项目设计---业务需求
 ##  2-2 项目设计---技术分解&模块设计
 ##  2-3 阶段小结
-##  2-4 【阶段总结】项目设计总结
-##  2-5 【勤于思考，夯实学习成果】项目设计课后习题
 # 第3章 项目基础搭建【业务系统之基础能力】
 ##  3-1 开发工具介绍
 > mysql:5.6
@@ -22,7 +26,6 @@ druid: 管理数据库连接池
 ##  3-6 页面请求资源处理
 模板文件中的变量替换
 ##  3-7 【阶段总结】项目基础搭建总结
-##  3-8 【勤于思考，夯实学习成果】项目基础搭建课后习题
 # 第4章 基础服务之用户，运营，商户能力建设【业务系统主体实现】
 ##  4-1 用户服务搭建（上）
 用户登录态的管理
@@ -41,7 +44,6 @@ gochar: static files
 ##  4-10 商家入驻流程（3）
 ##  4-11 商家入驻流程（4）
 ##  4-12 【阶段总结】基础服务之用户，运营，商户能力建设总结
-##  4-13 【勤于思考，夯实学习成果】基础服务之用户，运营，商户能力建设习题
 # 第5章 基础服务之品类，门店能力建设【业务系统主体实现】
 ##  5-1 品类管理服务（上）
 ##  5-2 品类管理服务（中）
@@ -356,17 +358,71 @@ POST /shop/_update_by_query
   }
 }
 ```
+定制化分词非常常见
 ##  11-2 定制化分词器之扩展词库（下） 热更新词库
 <entry key=" ext_dic" > http://yoursite.com/getCustomDic</entry>
 Http请求需要返回两个头部last-modified和etag
+两者任何一个发生变化则会重新更新,ik一分钟检测一次
+文件放在文件里
 
 ##  11-3 同义词扩展
+英文逗号分开,同义词分词器
+```
+PUT /shop?include_type_name=false
+{
+   "settings" : {
+      "number_of_shards" : 1,
+      "number_of_replicas" : 1,
+    "analysis": {
+      "filter": {
+        "my_synonym_filter":{
+          "type":"synonym",
+          "synonyms_path":"analysis-ik/synonyms.txt"
+        }
+      },
+      "analyzer": {
+        "ik_syno":{
+          "type":"custom",
+          "tokenizer":"ik_smart",
+          "filter":["my_synonym_filter"]
+        },
+        "ik_syno_max":{
+          "type":"custom",
+          "tokenizer":"ik_max_word",
+          "filter":["my_synonym_filter"]
+        }
+    }  }
+   },
+   "mappings": {
+     "properties": {
+       "id":{"type":"integer"},
+       "name":{
+        "type":"text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno" 
+       },
+       "tags":{"type":"text","analyzer": "whitespace","fielddata":true},
+       "location":{"type":"geo_point"},
+       "remark_score":{"type":"double"},
+       "price_per_man":{"type":"integer"},
+       "category_id":{"type":"integer"},
+       "category_name":{"type":"keyword"},
+       "seller_id":{"type":"integer"},
+       "seller_remark_score":{"type":"double"},
+       "seller_disabled_flag":{"type":"integer"}
+     }
+   }
+}
 
+```
 ##  11-4 相关性重塑（上）
+相关性搜索->相关性工程->相关性工程师
+让搜索引擎理解语义
+影响召回及排序
+> 采取词性影响召回模型
 ##  11-5 相关性重塑（中）
+构造分词函数识别器
 ##  11-6 相关性重塑（下）
-##  11-7 【阶段总结】点评搜索进阶之相关性改造总结
-##  11-8 【勤于思考，夯实学习成果】点评搜索进阶之相关性改造习题
 # 第12章 点评搜索进阶之准实时性索引【准实时索引能力建设】
 ##  12-1 canal索引构建进阶（1）
 canal伪装成mysql从库
