@@ -422,11 +422,38 @@ PUT /shop?include_type_name=false
 > 采取词性影响召回模型
 ##  11-5 相关性重塑（中）
 构造分词函数识别器
+影响召回
 ##  11-6 相关性重塑（下）
+影响排序
 # 第12章 点评搜索进阶之准实时性索引【准实时索引能力建设】
 ##  12-1 canal索引构建进阶（1）
 canal伪装成mysql从库
 ##  12-2 canal索引构建进阶（2）
+[download](https://github.com/alibaba/canal/releases/tag/canal-1.1.3)
+> 1.1.3
+### mysql docker compose
+```
+version: '2.2'
+services:
+
+  mysql:
+    image: mysql:5.6
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - ./mysqldb01:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - mysql-network
+
+
+networks:
+  mysql-network:
+    driver: bridge
+```
 ##  12-3 canal索引构建进阶（3）
 ##  12-4 canal索引构建进阶（4）
 ##  12-5 canal索引构建进阶（5）
