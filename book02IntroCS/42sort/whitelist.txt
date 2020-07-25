@@ -1,4 +1,0 @@
-alice@home
-bob@office
-carl@beach
-dave@boat
