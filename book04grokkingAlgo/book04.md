@@ -1,4 +1,4 @@
-[toc]
+[[toc]]
 # chap01 binary_search
 ```python
 def binary_search(list, item):
